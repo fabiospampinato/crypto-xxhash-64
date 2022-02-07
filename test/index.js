@@ -63,6 +63,7 @@ describe ( 'Crypto xxHash-64', it => {
     for ( const [input, seed, output] of tests ) {
 
       t.is ( xxHash.hash ( input, seed ), output );
+      t.is ( xxHash.hash ( Buffer.from ( input ), seed ), output );
 
     }
 
