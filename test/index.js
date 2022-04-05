@@ -1,8 +1,8 @@
 
 /* IMPORT */
 
-const {describe} = require ( 'fava' );
-const {default: xxHash} = require ( '../dist' );
+import {describe} from 'fava';
+import xxHash from '../dist/index.js';
 
 /* MAIN */
 

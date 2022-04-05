@@ -1,8 +1,10 @@
 
 /* IMPORT */
 
-const {default: xxHash64} = require ( '../dist' );
-const benchmark = require ( 'benchloop' );
+import benchmark from 'benchloop';
+import xxHash64 from '../dist/index.js';
+
+await xxHash64.loadWASM ();
 
 /* MAIN */
 
@@ -11,22 +13,18 @@ benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
   log: 'compact'
 });
 
-xxHash64.loadWASM ().then ( () => {
-
-  benchmark ({
-    name: 'no-seed',
-    fn: () => {
-      xxHash64.hash ( 'The quick brown fox jumps over the lazy dog' );
-    }
-  });
-
-  benchmark ({
-    name: 'seed',
-    fn: () => {
-      xxHash64.hash ( 'The quick brown fox jumps over the lazy dog', 1337n );
-    }
-  });
-
-  benchmark.summary ();
-
+benchmark ({
+  name: 'no-seed',
+  fn: () => {
+    xxHash64.hash ( 'The quick brown fox jumps over the lazy dog' );
+  }
 });
+
+benchmark ({
+  name: 'seed',
+  fn: () => {
+    xxHash64.hash ( 'The quick brown fox jumps over the lazy dog', 1337n );
+  }
+});
+
+benchmark.summary ();

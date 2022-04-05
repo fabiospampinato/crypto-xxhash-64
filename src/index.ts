@@ -1,8 +1,8 @@
 
 /* IMPORT */
 
-import loadHash from 'xxhash-wasm';
 import once from 'once';
+import loadHash from 'xxhash-wasm';
 
 /* MAIN */
 
@@ -42,4 +42,4 @@ const xxHash = {
 
 /* EXPORT */
 
-export default xxHash
+export default xxHash;
