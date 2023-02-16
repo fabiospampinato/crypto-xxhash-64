@@ -9,8 +9,7 @@ await xxHash64.loadWASM ();
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 1000000,
-  log: 'compact'
+  iterations: 1000000
 });
 
 benchmark ({
