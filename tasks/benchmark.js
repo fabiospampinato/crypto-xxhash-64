@@ -8,8 +8,8 @@ await xxHash64.loadWASM ();
 
 /* MAIN */
 
-benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 1000000
+benchmark.config ({
+  iterations: 1_000_000
 });
 
 benchmark ({
